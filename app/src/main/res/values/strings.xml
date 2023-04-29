@@ -6,4 +6,10 @@
     <string name="forgot_password"><b><u>Forgot Password ?</u></b></string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="rides">Rides</string>
+    <string name="wallet">wallet</string>
 </resources>
