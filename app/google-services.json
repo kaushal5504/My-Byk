@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "764580707725",
+    "project_id": "my-byk",
+    "storage_bucket": "my-byk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764580707725:android:32f45a5d4450bfc29f51c4",
+        "android_client_info": {
+          "package_name": "com.tech.my_byk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764580707725-58k4q8oissraknlp2672cj9rirhq48dg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tech.my_byk",
+            "certificate_hash": "01bdd2cccb5126e443ec1cc3f100849d9d4f033f"
+          }
+        },
+        {
+          "client_id": "764580707725-iksf97gifm0ns7vfr8hb8q8dmh12nd53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA09oOJiEGyNABToBR6lIvsfnYMOS3QYvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764580707725-iksf97gifm0ns7vfr8hb8q8dmh12nd53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
