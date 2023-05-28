@@ -13,4 +13,5 @@
     <string name="rides">Rides</string>
     <string name="wallet">Wallet</string>
     <string name="search_locations">Search locations</string>
+    <string name="my_byk"><font color="#FFFFFF">MY</font><font color= "#65EF2B">BYK</font></string>
 </resources>

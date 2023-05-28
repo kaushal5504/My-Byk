@@ -34,9 +34,9 @@ class PlaceAdapter(val list :ArrayList<Place>): RecyclerView.Adapter<PlaceAdapte
 
         holder.textViewLocation.text = current.location
         holder.textViewNoOfCycles.text = current.Number.toString()
+        holder.cardview.setOnClickListener {
 
-
-
+        }
     }
 
 

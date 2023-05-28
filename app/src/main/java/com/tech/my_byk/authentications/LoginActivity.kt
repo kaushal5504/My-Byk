@@ -151,7 +151,7 @@ class LoginActivity : AppCompatActivity() {
         try {
             val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
 
-            Toast.makeText(applicationContext,"Welcome to Quizzyy",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,"Welcome to My-Byk",Toast.LENGTH_SHORT).show()
             val intent =Intent(this@LoginActivity,MainActivity2::class.java)
             startActivity(intent)
             finish()
@@ -198,7 +198,7 @@ class LoginActivity : AppCompatActivity() {
 
         if(user!=null)
         {
-            Toast.makeText(applicationContext,"welcome to Quizzy",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,"welcome to My-Byk",Toast.LENGTH_SHORT).show()
 
             val intent =Intent(this@LoginActivity,MainActivity2::class.java)
             startActivity(intent)

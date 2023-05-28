@@ -1,26 +1,21 @@
 package com.tech.my_byk.ui.home
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.os.Build
+
 import android.os.Bundle
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.TextView
+
 import android.widget.Toast
-//import androidx.appcompat.widget.SearchView
+
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.firebase.auth.FirebaseAuth
+
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.tech.my_byk.LoginActivity
+
 import com.tech.my_byk.Place
 import com.tech.my_byk.R
 import com.tech.my_byk.adapters.PlaceAdapter
@@ -28,7 +23,7 @@ import com.tech.my_byk.databinding.FragmentHomeBinding
 import java.util.*
 import kotlin.collections.ArrayList
 import android.widget.SearchView
-import androidx.annotation.RequiresApi
+
 
 class HomeFragment : Fragment() {
 
@@ -55,7 +50,6 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-//
         recyclerView =root.findViewById(R.id.placeRecyclerView)
        recyclerView.layoutManager = LinearLayoutManager(root.context)
         recyclerView.setHasFixedSize(true)
@@ -63,47 +57,56 @@ class HomeFragment : Fragment() {
        // list = ArrayList<Place>()
 
         list = arrayListOf<Place>()
-      //  searchList = arrayListOf<Place>()
+        searchList = arrayListOf<Place>()
         getLocationData()
 
-        binding.searchBar.setOnQueryTextListener(object: SearchView.OnQueryTextListener
-             {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                binding.searchBar.clearFocus()
+        try {
+            binding.searchBar.setOnQueryTextListener(object: SearchView.OnQueryTextListener
+            {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    binding.searchBar.clearFocus()
+
 
                     return false
-            }
+                }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                searchList.clear()
-                val searchText = newText!!.toLowerCase(Locale.getDefault())
-                if(searchText.isNotEmpty())
-                {
-                    list.forEach { it->
-                        if(it.location?.toLowerCase(Locale.getDefault())?.contains(searchText)!!)
-                        {
-                            searchList.add(it)
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    searchList.clear()
+                    val searchText = newText!!.toLowerCase(Locale.getDefault())
+                    if(searchText.isNotEmpty())
+                    {
+                        list.forEach { it->
+                            if(it.location?.toLowerCase(Locale.getDefault())?.contains(searchText)!!)
+                            {
+                                searchList.add(it)
+                            }
+
                         }
+
+                        recyclerView.adapter!!.notifyDataSetChanged()
+
+
+                    }else
+                    {
+
+                        searchList.clear()
+                        searchList.addAll(list)
+                        recyclerView.adapter!!.notifyDataSetChanged()
 
                     }
 
-                    recyclerView.adapter!!.notifyDataSetChanged()
-
-
-                }else
-                {
-
-                    searchList.clear()
-                    searchList.addAll(list)
-                    recyclerView.adapter!!.notifyDataSetChanged()
-
+                    return false
                 }
 
-                return false
-            }
 
+            })
 
-        })
+        }catch (e :Exception)
+        {
+            Toast.makeText(context,e.stackTrace.toString(),Toast.LENGTH_SHORT).show()
+
+        }
+
 
 
 //        homeViewModel.text.observe(viewLifecycleOwner) {
